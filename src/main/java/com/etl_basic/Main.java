@@ -1,13 +1,13 @@
 package com.etl_basic;
 
-import java.util.Locale;
-import java.util.Scanner;
+import com.etl_basic.service.ExtensionFile;
 
 public class Main {
     public static void main (String[] args){
-        Scanner sc =new Scanner(System.in)
-                .useLocale(Locale.US);
 
-        System.out.println("Hello world");
+        String path = ("./src/main/com/etl_basic/data/file.csv");
+
+        ExtensionFile extensionFile = new ExtensionFile();
+        extensionFile.extensionType(path);
     }
 }
