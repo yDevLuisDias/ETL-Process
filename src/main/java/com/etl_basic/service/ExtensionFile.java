@@ -6,6 +6,10 @@ public class ExtensionFile {
 
     ExtractService extractService;
 
+    public ExtensionFile() {
+        this.extractService = new ExtractService();
+    }
+
     public void extensionType (String path){
 
         String extension = FilenameUtils.getExtension(path);
