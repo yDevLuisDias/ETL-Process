@@ -1,6 +1,7 @@
 package com.etl_basic.service;
 
 import com.etl_basic.model.CsvEntity;
+import com.etl_basic.model.JsonEntity;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -36,21 +37,36 @@ public class ExtractService {
                 csvColumns.add(data[0]);
                 csvColumns.add(data[1]);
                 csvColumns.add(data[2]);
+                csvColumns.add(data[3]);
 
                 if (csvColumns == null){
                     System.out.println("Vazio");
                 }
             }
-
         }catch(IOException e){
             System.out.println("ERROR : " + e.getMessage());
         }
-
         return new CsvEntity();
     }
 
-    public void inputPathJson(String path){
+    public JsonEntity inputPathJson(String path){
+        try(BufferedReader bf = new BufferedReader(new FileReader(path))){
+            String line = bf.readLine();
 
+            while ((line = bf.readLine()) != null){
+                var data = line.split("\"\"");
+
+                jsonColumns.add(data[0]);
+                jsonColumns.add(data[1]);
+
+                if (jsonColumns == null){
+                    System.out.println("vazio");
+                }
+            }
+        }catch (IOException e){
+            System.out.println("ERROR : " + e.getMessage());
+        }
+        return new JsonEntity();
     }
 
     public void inputPathXml(String path){
