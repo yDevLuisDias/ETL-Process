@@ -6,13 +6,15 @@ public class CsvEntity {
 
     private Long id;
     private String name;
+    private Integer age;
     private String email;
 
     public CsvEntity(){}
 
-    public CsvEntity(Long id, String name, String email) {
+    public CsvEntity(Long id, String name, Integer age, String email) {
         this.id = id;
         this.name = name;
+        this.age = age;
         this.email = email;
     }
 
@@ -31,6 +33,10 @@ public class CsvEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getAge() {return age;}
+
+    public void setAge(Integer age) { this.age = age; }
 
     public String getEmail() {
         return email;
